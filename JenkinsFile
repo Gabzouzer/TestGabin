@@ -4,11 +4,7 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				bat '''
-                   		 echo "PATH = %PATH%"
-                   		 echo "M2_HOME = %M2_HOME%"
-				 mvn --version
-               			 '''
+				bat 'echo "Hello World"'
 			}
 		}
 		stage('Test') {
