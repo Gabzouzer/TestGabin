@@ -14,9 +14,11 @@ pipeline {
 				bat 'mvn test'
 			}
 		}
-		stage('Deploy') {
+		stage('Scan') {
 			steps {
-				echo 'Deploying...'
+				withSonarQubeEnv(installationName :'SonarQube'){
+					bat 'cd TestGabin && mvn sonar:sonar -Dsonar.projectKey=testgabin -Dsonar.organization=my_organization_key -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=my_auth_token' 
+				}
 			}
 		}
 	}
