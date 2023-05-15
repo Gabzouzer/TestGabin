@@ -15,6 +15,8 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+	<sonar.host.url>http://localhost:9000</sonar.host.url>
+	<sonar.login>squ_5e054c7e13fce7e575cd246d001d36e071dd7992</sonar.login>
     </properties>
 
     <!-- Dépendances du projet -->
@@ -49,6 +51,11 @@
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
+		-<plugin>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.9.0.2155</version>
+		</plugin>
         </plugins>
     </build>
 </project>
