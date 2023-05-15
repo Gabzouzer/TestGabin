@@ -5,21 +5,13 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo 'Building...'
-				bat 'mvn compile'
-			}
-		}
-		stage('Test') {
-			steps {
-				echo 'Testing...'
-				bat 'mvn test'
+				bat 'mvn clean install'
 			}
 		}
 		stage('Scan') {
 			steps {
-				withSonarQubeEnv(installationName :'SonarQube'){
-					bat 'mvn sonar:sonar' 
-				}
+				echo 'Testing...'
+				bat 'mvn sonar:sonar'
 			}
 		}
-	}
 }
